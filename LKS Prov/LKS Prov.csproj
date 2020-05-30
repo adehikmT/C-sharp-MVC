@@ -12,6 +12,22 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,9 +48,33 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2860686818CB765E08B6CDC3D9771A7240F2D776</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LKS Prov_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,16 +84,178 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="GUI\AddNewGuest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\AddNewGuest.Designer.cs">
+      <DependentUpon>AddNewGuest.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\BookingRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BookingRoom.Designer.cs">
+      <DependentUpon>BookingRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\InputPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\InputPayment.Designer.cs">
+      <DependentUpon>InputPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ManageBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManageBooking.Designer.cs">
+      <DependentUpon>ManageBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ManageDailyPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManageDailyPrice.Designer.cs">
+      <DependentUpon>ManageDailyPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ManageEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManageEmployee.Designer.cs">
+      <DependentUpon>ManageEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ManageGuest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManageGuest.Designer.cs">
+      <DependentUpon>ManageGuest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ManageHolidayPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManageHolidayPrice.Designer.cs">
+      <DependentUpon>ManageHolidayPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ManageRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManageRoom.Designer.cs">
+      <DependentUpon>ManageRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ManageRoomFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManageRoomFacility.Designer.cs">
+      <DependentUpon>ManageRoomFacility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ManageRoomRepairment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManageRoomRepairment.Designer.cs">
+      <DependentUpon>ManageRoomRepairment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ManageRoomType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ManageRoomType.Designer.cs">
+      <DependentUpon>ManageRoomType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\RoomAvailble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RoomAvailble.Designer.cs">
+      <DependentUpon>RoomAvailble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TransactionReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TransactionReport.Designer.cs">
+      <DependentUpon>TransactionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewPayment.Designer.cs">
+      <DependentUpon>ViewPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kelas\Koneksi.cs" />
+    <Compile Include="Kelas\Program.cs" />
+    <Compile Include="Kelas\Query.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\AddNewGuest.resx">
+      <DependentUpon>AddNewGuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BookingRoom.resx">
+      <DependentUpon>BookingRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\InputPayment.resx">
+      <DependentUpon>InputPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManageBooking.resx">
+      <DependentUpon>ManageBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManageDailyPrice.resx">
+      <DependentUpon>ManageDailyPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManageEmployee.resx">
+      <DependentUpon>ManageEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManageGuest.resx">
+      <DependentUpon>ManageGuest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManageHolidayPrice.resx">
+      <DependentUpon>ManageHolidayPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManageRoom.resx">
+      <DependentUpon>ManageRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManageRoomFacility.resx">
+      <DependentUpon>ManageRoomFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManageRoomRepairment.resx">
+      <DependentUpon>ManageRoomRepairment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ManageRoomType.resx">
+      <DependentUpon>ManageRoomType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RoomAvailble.resx">
+      <DependentUpon>RoomAvailble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TransactionReport.resx">
+      <DependentUpon>TransactionReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ViewPayment.resx">
+      <DependentUpon>ViewPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +265,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="LKS Prov_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +279,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
